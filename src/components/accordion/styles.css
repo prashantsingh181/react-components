@@ -1,0 +1,24 @@
+.wrapper {
+  height: 100vh;
+  display: flex;
+  gap: 1rem;
+  flex-direction: column;
+  align-items: center;
+}
+.accordion {
+  background-color: aquamarine;
+  width: 60%;
+  box-shadow: 3px 3px 4px rgba(0, 0, 0, 0.1);
+}
+.accordion-title {
+  padding: 0.5rem;
+  cursor: pointer;
+}
+.accordion-title:hover {
+  transform: scale(1.1);
+  transition: all 0.3s ease-in-out;
+}
+.expandable {
+  background-color: burlywood;
+  padding: 0.8rem;
+}
