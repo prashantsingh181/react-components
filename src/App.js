@@ -7,6 +7,7 @@ import LoadMoreButton from './components/load-more-data';
 import TableWithCheckbox from './components/tableWithCheckbox';
 import TreeView from './components/tree-view';
 import QrCode from './components/QrCode';
+import LightDark from './components/light-dark';
 
 function App() {
   return (
@@ -20,7 +21,8 @@ function App() {
       {/* <LoadMoreButton url="https://dummyjson.com/products" limit="20"/> */}
       {/* <TableWithCheckbox headers={headers} order={order} bodyObject={bodyObject} /> */}
       {/* <TreeView /> */}
-      <QrCode />
+      {/* <QrCode /> */}
+      <LightDark />
     </div>
   );
 }
