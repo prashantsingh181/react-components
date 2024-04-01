@@ -8,6 +8,7 @@ import TableWithCheckbox from './components/tableWithCheckbox';
 import TreeView from './components/tree-view';
 import QrCode from './components/QrCode';
 import LightDark from './components/light-dark';
+import ScrollIndicator from './components/scroll-indicator';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
       {/* <TreeView /> */}
       {/* <QrCode /> */}
       <LightDark />
+      <ScrollIndicator url="https://dummyjson.com/products?limit=100" />
     </div>
   );
 }

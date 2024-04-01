@@ -1,0 +1,27 @@
+.scroll-header {
+  background-color: rgb(13, 91, 30);
+  position: fixed;
+  width: 100%;
+  top: 0;
+}
+.scroll-header h1 {
+  margin: 0;
+  padding: 20px;
+  text-align: center;
+}
+.scroll-indicator-container {
+  width: 100%;
+  height: 10px;
+  background-color: aquamarine;
+}
+.scroll-indicator {
+  background-color: cadetblue;
+  height: 10px;
+}
+.data-container {
+  margin-top: 100px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
