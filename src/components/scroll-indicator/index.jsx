@@ -24,8 +24,9 @@ export default function ScrollIndicator({ url }) {
   }, [url]);
 
   useEffect(() => {
-    function handleScroll(e){
-        const scrollY = window.scrollY;
+    function handleScroll(){
+        // const scrollY = window.scrollY;
+        const scrollY = document.documentElement.scrollTop || document.body.scrollTop;
         const clientHeight = document.documentElement.clientHeight;
         const scrollHeight = document.documentElement.scrollHeight;
         setScrollIndicatorWidth((scrollY/(scrollHeight - clientHeight))*100)

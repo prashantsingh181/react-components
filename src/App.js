@@ -23,7 +23,7 @@ function App() {
       {/* <TableWithCheckbox headers={headers} order={order} bodyObject={bodyObject} /> */}
       {/* <TreeView /> */}
       {/* <QrCode /> */}
-      <LightDark />
+      {/* <LightDark /> */}
       <ScrollIndicator url="https://dummyjson.com/products?limit=100" />
     </div>
   );
