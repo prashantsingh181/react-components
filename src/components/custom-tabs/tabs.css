@@ -1,0 +1,19 @@
+.tabs-container {
+  text-align: center;
+  padding: 20px 40px;
+  transition: all 0.5s;
+}
+.content {
+  padding: 40px 70px;
+}
+.tab-label {
+  padding: 10px 20px;
+  background-color: bisque;
+  border: 1px solid darkgoldenrod;
+  font-weight: bold;
+  cursor: pointer;
+}
+.tab-label.active {
+  background-color: brown;
+  border: 2px solid darksalmon;
+}
