@@ -2,7 +2,7 @@ import "./styles.css";
 import React, { useEffect, useState } from "react";
 
 export default function ScrollIndicator({ url }) {
-    const [scrollIndicatorWidth, setScrollIndicatorWidth] = useState(0);
+  const [scrollIndicatorWidth, setScrollIndicatorWidth] = useState(0);
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState(null);
@@ -24,19 +24,20 @@ export default function ScrollIndicator({ url }) {
   }, [url]);
 
   useEffect(() => {
-    function handleScroll(){
-        // const scrollY = window.scrollY;
-        const scrollY = document.documentElement.scrollTop || document.body.scrollTop;
-        const clientHeight = document.documentElement.clientHeight;
-        const scrollHeight = document.documentElement.scrollHeight;
-        setScrollIndicatorWidth((scrollY/(scrollHeight - clientHeight))*100)
+    function handleScroll() {
+      // const scrollY = window.scrollY;
+      const scrollY =
+        document.documentElement.scrollTop || document.body.scrollTop;
+      const clientHeight = document.documentElement.clientHeight;
+      const scrollHeight = document.documentElement.scrollHeight;
+      setScrollIndicatorWidth((scrollY / (scrollHeight - clientHeight)) * 100);
     }
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
 
     return () => {
-        window.removeEventListener('scroll', handleScroll);
-    }
-  }, []) 
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
   if (loading) {
     return <div>Loading</div>;
   }
@@ -48,7 +49,10 @@ export default function ScrollIndicator({ url }) {
       <div className="scroll-header">
         <h1>Scroll Indicator</h1>
         <div className="scroll-indicator-container">
-          <div className="scroll-indicator" style={{width: `${scrollIndicatorWidth}%`}}></div>
+          <div
+            className="scroll-indicator"
+            style={{ width: `${scrollIndicatorWidth}%` }}
+          ></div>
         </div>
       </div>
       <div className="data-container">
