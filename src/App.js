@@ -11,6 +11,8 @@ import LightDark from "./components/light-dark";
 import ScrollIndicator from "./components/scroll-indicator";
 import TabParent from "./components/custom-tabs";
 import GithubProfileFinder from "./components/github-profile-finder";
+import ModalParent from './components/custom-modal';
+
 
 function App() {
   return (
@@ -28,7 +30,8 @@ function App() {
       {/* <LightDark /> */}
       {/* <ScrollIndicator url="https://dummyjson.com/products?limit=100" /> */}
       {/* <TabParent /> */}
-      <GithubProfileFinder />
+      {/* <GithubProfileFinder /> */}
+      <ModalParent />
     </div>
   );
 }
