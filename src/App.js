@@ -9,6 +9,7 @@ import TreeView from './components/tree-view';
 import QrCode from './components/QrCode';
 import LightDark from './components/light-dark';
 import ScrollIndicator from './components/scroll-indicator';
+import ModalParent from './components/custom-modal';
 
 function App() {
   return (
@@ -24,7 +25,8 @@ function App() {
       {/* <TreeView /> */}
       {/* <QrCode /> */}
       {/* <LightDark /> */}
-      <ScrollIndicator url="https://dummyjson.com/products?limit=100" />
+      {/* <ScrollIndicator url="https://dummyjson.com/products?limit=100" /> */}
+      <ModalParent />
     </div>
   );
 }
