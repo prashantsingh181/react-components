@@ -1,0 +1,32 @@
+.tictactoe-container{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    flex-flow: row nowrap;
+    justify-content: center;
+    gap: 2rem;
+    background-color: #f6f9ff;
+}
+.square-container {
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+}
+.square-row {
+    display: flex;
+    flex-direction: row;
+    gap: 0.2rem;
+}
+.square{
+    height: 2.5rem;
+    width: 2.5rem;
+    background-color: #ffffff;
+    border: 1px solid #012970;
+    color: #012970;
+}
+.history{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+}
