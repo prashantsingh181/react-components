@@ -15,6 +15,8 @@ import ModalParent from './components/custom-modal';
 import SearchAutocomplete from "./components/search-autocomplete";
 import TicTacToeWithHistory from "./components/tic-tac-toe-with-history";
 import TicTacToe from "./components/tic-tac-toe";
+import FeatureFlagProvider from "./components/feature-flag/context";
+import FeatureFlagComponent from "./components/feature-flag/FeatureFlagComponent";
 
 function App() {
   return (
@@ -36,7 +38,10 @@ function App() {
       {/* <ModalParent /> */}
       {/* <SearchAutocomplete /> */}
       {/* <TicTacToeWithHistory /> */}
-      <TicTacToe />
+      {/* <TicTacToe /> */}
+      <FeatureFlagProvider>
+        <FeatureFlagComponent />
+      </FeatureFlagProvider>
     </div>
   );
 }
