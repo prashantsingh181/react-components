@@ -1,0 +1,46 @@
+.users-container {
+    display: flex;
+    flex-flow: row wrap;
+    background-color: #f6f9ff;
+    height: 100dvh;
+    gap: 1rem;
+}
+
+.user-card{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 1.5rem 3rem;
+    border-radius: 1rem;
+    box-shadow: 0 0 2rem rgba(1, 41, 112, 0.1)
+}
+.user-card img {
+    height: 5rem;
+}
+.user-info{
+    display: flex;
+    flex-direction: column;
+    color: #012970;
+    font-family: "Nunito", sans-serif;
+    gap: 1rem;
+}
+.user-contact{
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+.user-name{
+    font-size: 1.3rem;
+    font-weight: bold;
+    padding-inline: 0.3rem;
+}
+.user-gender {
+    font-weight: bold;
+    font-size: 1.2rem;
+    padding-inline: 0.3rem;
+}
+.info-container{
+    display: flex;
+    gap: 1rem;
+}

@@ -17,6 +17,7 @@ import TicTacToeWithHistory from "./components/tic-tac-toe-with-history";
 import TicTacToe from "./components/tic-tac-toe";
 import FeatureFlagProvider from "./components/feature-flag/context";
 import FeatureFlagComponent from "./components/feature-flag/FeatureFlagComponent";
+import UseFetchTest from "./components/useFetch/test";
 
 function App() {
   return (
@@ -39,9 +40,10 @@ function App() {
       {/* <SearchAutocomplete /> */}
       {/* <TicTacToeWithHistory /> */}
       {/* <TicTacToe /> */}
-      <FeatureFlagProvider>
+      {/* <FeatureFlagProvider>
         <FeatureFlagComponent />
-      </FeatureFlagProvider>
+      </FeatureFlagProvider> */}
+      <UseFetchTest />
     </div>
   );
 }
