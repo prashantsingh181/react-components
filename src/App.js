@@ -18,6 +18,7 @@ import TicTacToe from "./components/tic-tac-toe";
 import FeatureFlagProvider from "./components/feature-flag/context";
 import FeatureFlagComponent from "./components/feature-flag/FeatureFlagComponent";
 import UseFetchTest from "./components/useFetch/test";
+import UseClickOutsideTest from "./components/useClickOutside/test";
 
 function App() {
   return (
@@ -43,7 +44,8 @@ function App() {
       {/* <FeatureFlagProvider>
         <FeatureFlagComponent />
       </FeatureFlagProvider> */}
-      <UseFetchTest />
+      {/* <UseFetchTest /> */}
+      <UseClickOutsideTest />
     </div>
   );
 }
