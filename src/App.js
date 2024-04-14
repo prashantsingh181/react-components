@@ -19,6 +19,7 @@ import FeatureFlagProvider from "./components/feature-flag/context";
 import FeatureFlagComponent from "./components/feature-flag/FeatureFlagComponent";
 import UseFetchTest from "./components/useFetch/test";
 import UseClickOutsideTest from "./components/useClickOutside/test";
+import UseWindowResizeTest from "./components/use-window-resize/test";
 
 function App() {
   return (
@@ -45,7 +46,8 @@ function App() {
         <FeatureFlagComponent />
       </FeatureFlagProvider> */}
       {/* <UseFetchTest /> */}
-      <UseClickOutsideTest />
+      {/* <UseClickOutsideTest /> */}
+      <UseWindowResizeTest />
     </div>
   );
 }
