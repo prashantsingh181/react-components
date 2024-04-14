@@ -1,0 +1,26 @@
+.scroll-container {
+  background-color: "#f6f9ff";
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
+  position: relative;
+}
+.scroll-container h1 {
+  color: #012970;
+}
+.scroll-btn {
+  position: fixed;
+  padding: 0;
+  border: 0;
+  font-size: 2rem;
+  color: #012970;
+  right: 0;
+  margin: 1rem;
+}
+.scroll-to-top {
+  top: 0;
+}
+.scroll-to-bottom {
+  bottom: 0;
+}

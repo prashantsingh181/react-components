@@ -20,6 +20,7 @@ import FeatureFlagComponent from "./components/feature-flag/FeatureFlagComponent
 import UseFetchTest from "./components/useFetch/test";
 import UseClickOutsideTest from "./components/useClickOutside/test";
 import UseWindowResizeTest from "./components/use-window-resize/test";
+import ScrollToTopAndBottom from "./components/scroll-to-top-and-bottom";
 
 function App() {
   return (
@@ -47,7 +48,8 @@ function App() {
       </FeatureFlagProvider> */}
       {/* <UseFetchTest /> */}
       {/* <UseClickOutsideTest /> */}
-      <UseWindowResizeTest />
+      {/* <UseWindowResizeTest /> */}
+      <ScrollToTopAndBottom />
     </div>
   );
 }
