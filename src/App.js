@@ -11,7 +11,7 @@ import LightDark from "./components/light-dark";
 import ScrollIndicator from "./components/scroll-indicator";
 import TabParent from "./components/custom-tabs";
 import GithubProfileFinder from "./components/github-profile-finder";
-import ModalParent from './components/custom-modal';
+import ModalParent from "./components/custom-modal";
 import SearchAutocomplete from "./components/search-autocomplete";
 import TicTacToeWithHistory from "./components/tic-tac-toe-with-history";
 import TicTacToe from "./components/tic-tac-toe";
@@ -20,6 +20,7 @@ import FeatureFlagComponent from "./components/feature-flag/FeatureFlagComponent
 import UseFetchTest from "./components/useFetch/test";
 import UseClickOutsideTest from "./components/useClickOutside/test";
 import UseWindowResizeTest from "./components/use-window-resize/test";
+import ScrollToParticularSection from "./components/scroll-to-particular-section";
 
 function App() {
   return (
@@ -47,7 +48,8 @@ function App() {
       </FeatureFlagProvider> */}
       {/* <UseFetchTest /> */}
       {/* <UseClickOutsideTest /> */}
-      <UseWindowResizeTest />
+      {/* <UseWindowResizeTest /> */}
+      <ScrollToParticularSection />
     </div>
   );
 }
