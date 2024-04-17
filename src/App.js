@@ -22,6 +22,7 @@ import UseClickOutsideTest from "./components/useClickOutside/test";
 import UseWindowResizeTest from "./components/use-window-resize/test";
 import ScrollToParticularSection from "./components/scroll-to-particular-section";
 import ScrollToTopAndBottom from "./components/scroll-to-top-and-bottom";
+import AlertTest from "./components/alerts/AlertTest";
 
 function App() {
   return (
@@ -50,8 +51,9 @@ function App() {
       {/* <UseFetchTest /> */}
       {/* <UseClickOutsideTest /> */}
       {/* <UseWindowResizeTest /> */}
-      <ScrollToParticularSection />
-      <ScrollToTopAndBottom />
+      {/* <ScrollToParticularSection /> */}
+      {/* <ScrollToTopAndBottom /> */}
+      <AlertTest />
     </div>
   );
 }
