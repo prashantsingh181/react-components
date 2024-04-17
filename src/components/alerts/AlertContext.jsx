@@ -9,12 +9,12 @@ const AlertProvider = ({ children }) => {
 
   function showSuccessAlert(msg) {
     setAlert({ isVisible: true, type: "success", message: msg });
-    setTimeout(() => setAlert({ isVisible: false }));
+    setTimeout(() => setAlert({ isVisible: false }), 3000);
   }
 
   function showErrorAlert(msg) {
     setAlert({ isVisible: true, type: "error", message: msg });
-    setTimeout(() => setAlert({ isVisible: false }));
+    setTimeout(() => setAlert({ isVisible: false }), 3000);
   }
 
   return (

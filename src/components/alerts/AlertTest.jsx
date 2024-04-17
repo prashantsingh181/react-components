@@ -1,14 +1,14 @@
 import React from 'react'
 import AlertComponent from './AlertComponent'
-import { useAlert } from './alertContext'
+import { useAlert } from './AlertContext'
 
 const AlertTest = () => {
-    const {showSuccessAlert, showErrorAlert} = useAlert();
+  const { showSuccessAlert, showErrorAlert } = useAlert();
   return (
-    <div>
-        <button onClick={() => showErrorAlert("Error")}>Error Alert</button>
-        <button onClick={() => showSuccessAlert("Success")}>Success Alert</button>
-        <AlertComponent />
+    <div className='alert-test'>
+      <button onClick={() => showErrorAlert("Error Message")}>Error Alert</button>
+      <button onClick={() => showSuccessAlert("Success Message")}>Success Alert</button>
+      <AlertComponent />
     </div>
   )
 }
