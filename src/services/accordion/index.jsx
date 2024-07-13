@@ -1,7 +1,7 @@
 import data from "./data";
 import { useState } from "react";
 import { FaPlus, FaMinus } from "react-icons/fa6";
-import ToggleButton from "../../components/ToggleButton";
+import ToggleSwitch from "../../components/ToggleSwitch";
 
 export default function Accordion() {
   const [selected, setSelected] = useState(null);
@@ -30,21 +30,13 @@ export default function Accordion() {
   return (
     <div className="container mx-auto h-full px-4 py-6 flex flex-col gap-8">
       <div className="self-center">
-        <ToggleButton
+        <ToggleSwitch
           value={enableMultiSelection}
           leftText="Single Selection"
           rightText="Multiple Selection"
           onClick={toggleSelectionMode}
         />
       </div>
-      {/* <button
-        className="primary-button self-center"
-        onClick={toggleSelectionMode}
-      >
-        {enableMultiSelection
-          ? "Enable Single Selection"
-          : "Enable Multiple Selection"}
-      </button> */}
       <ul className="text-primary-text dark:text-primary-dark-text flex flex-col gap-4">
         {data &&
           data.length > 0 &&
@@ -55,11 +47,17 @@ export default function Accordion() {
             return (
               <li className="card" key={item.id}>
                 <div
-                  className={`flex justify-between px-4 py-3 rounded cursor-pointer ${
-                    isSelected
-                      ? "bg-theme-color text-primary-bg"
-                      : "bg-primary-bg dark:bg-primary-dark-bg"
-                  }`}
+                  tabIndex="0"
+                  role="button"
+                  onKeyDown={(e) => {
+                    if (e.key === 'Enter' || e.key === " ") {
+                      handleSelection(item.id);
+                    }
+                  }}
+                  className={`flex justify-between px-4 py-3 rounded cursor-pointer ${isSelected
+                    ? "bg-theme-color text-primary-bg"
+                    : "bg-primary-bg dark:bg-primary-dark-bg"
+                    }`}
                   onClick={() => handleSelection(item.id)}
                 >
                   <span>{item.question}</span>

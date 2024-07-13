@@ -1,81 +1,58 @@
 import { useState } from "react";
-import "./styles.css";
-const RandomColor = () => {
+
+function RandomColorGenerator() {
   const [colorType, setColorType] = useState("");
-  const [color, setColor] = useState();
-  const heading = {
-    hex: "HEX Color",
-    rgb: "RGB Color",
-  };
-  const hex = [
-    "1",
-    "2",
-    "3",
-    "4",
-    "5",
-    "6",
-    "7",
-    "8",
-    "9",
-    "0",
-    "A",
-    "B",
-    "C",
-    "D",
-    "E",
-    "F",
-  ];
-  function generateRandomHexColor() {
-    if (colorType === "") {
-      alert("Please select a format first!");
+  const [randomColor, setRandomColor] = useState("");
+
+  function generateRandomColor() {
+    let randomColor = "";
+    if (colorType === "hex") {
+      randomColor = generateRandomHex()
+    } else if (colorType === "rgb") {
+      randomColor = generateRandomRgb()
     } else {
-      let hexColor = "#";
-      for (let i = 0; i < 6; i++) {
-        hexColor += hex[Math.floor(Math.random() * hex.length)];
-      }
-      setColor(hexColor);
+      alert("Please select a color type first.")
     }
+    setRandomColor(randomColor);
   }
-  function generateRandomRgbColor() {
-    if (colorType === "") {
-      alert("Please select a format first!");
-    } else {
-      const r = Math.floor(Math.random() * 256);
-      const g = Math.floor(Math.random() * 256);
-      const b = Math.floor(Math.random() * 256);
-      setColor(`rgb(${r}, ${g}, ${b})`);
+
+  function generateRandomHex() {
+    let randomColor = "#";
+    const hexLetters = "0123456789abcdef";
+    for (let i = 0; i < 6; i++) {
+      randomColor += hexLetters.charAt(Math.floor(Math.random() * hexLetters.length));
     }
+    return randomColor;
   }
-  function handleFormatChange(e) {
-    setColor("");
-    setColorType(e.target.value);
+
+  function generateRandomRgb() {
+    const r = Math.floor(Math.random() * 256);
+    const g = Math.floor(Math.random() * 256);
+    const b = Math.floor(Math.random() * 256);
+    return `rgb(${r}, ${g}, ${b})`;
   }
+
   return (
-    <div className="wrapper" style={{ backgroundColor: color }}>
-      <div className="selectors">
-        <select value={colorType} onChange={handleFormatChange}>
+    <div className="h-full p-4" style={{ backgroundColor: randomColor }}>
+      <div className="container mx-auto flex flex-col gap-8 items-center text-primary-text dark:text-primary-dark-text">
+        <select className="rounded p-2 shadow-md bg-primary-bg dark:bg-primary-dark-bg cursor-pointer" value={colorType} onChange={(e) => {
+          setColorType(e.target.value)
+          setRandomColor("")
+        }}>
           <option value="" disabled hidden>
-            Choose a format
+            Choose a color format
           </option>
           <option value="hex">HEX</option>
           <option value="rgb">RGB</option>
         </select>
-        <button
-          onClick={
-            colorType === "hex"
-              ? generateRandomHexColor
-              : generateRandomRgbColor
-          }
-        >
-          Generate Random Color
-        </button>
-      </div>
-      <div className="color" style={{ opacity: "50%" }}>
-        <h3>{heading[colorType]}</h3>
-        <h4>{color}</h4>
+        <button onClick={generateRandomColor} className="primary-button">Generate Random Color</button>
+        <div className="flex flex-col gap-4 items-center">
+          {colorType && <span className="uppercase text-3xl font-bold">{colorType} Color</span>}
+          {randomColor && <span className="text-xl font-semibold">{randomColor}</span>}
+        </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default RandomColor;
+export default RandomColorGenerator;
