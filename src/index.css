@@ -15,3 +15,18 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+@layer components {
+  .card {
+    @apply shadow-lg rounded bg-primary-bg dark:bg-primary-dark-bg;
+  }
+  .primary-button {
+    @apply bg-theme-color text-primary-bg px-4 py-2 shadow-md rounded-md;
+  }
+  .primary-button:hover:not(:disabled) {
+    @apply opacity-85;
+  }
+  .primary-button:active:not(:disabled) {
+    @apply scale-105 shadow-xl;
+  }
+}

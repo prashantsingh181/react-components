@@ -1,6 +1,6 @@
 import "./App.css";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
-import routes from "./components";
+import routes from "./services";
 import RootLayout from "./layout/RootLayout";
 
 function App() {
