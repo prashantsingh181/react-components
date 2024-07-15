@@ -54,14 +54,16 @@ export default function Accordion() {
                       handleSelection(item.id);
                     }
                   }}
-                  className={`flex justify-between px-4 py-3 rounded cursor-pointer ${isSelected
+                  className={`flex justify-between px-4 py-3 gap-1 rounded cursor-pointer  items-center ${isSelected
                     ? "bg-theme-color text-primary-bg"
                     : "bg-primary-bg dark:bg-primary-dark-bg"
                     }`}
                   onClick={() => handleSelection(item.id)}
                 >
                   <span>{item.question}</span>
-                  {isSelected ? <FaMinus /> : <FaPlus />}
+                  <div>
+                    {isSelected ? <FaMinus /> : <FaPlus />}
+                  </div>
                 </div>
                 {isSelected && <div className="px-4 py-2 animate-fade-in">{item.answer}</div>}
               </li>
