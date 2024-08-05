@@ -50,22 +50,26 @@ export default function Accordion() {
                   tabIndex="0"
                   role="button"
                   onKeyDown={(e) => {
-                    if (e.key === 'Enter' || e.key === " ") {
+                    if (e.key === "Enter" || e.key === " ") {
                       handleSelection(item.id);
                     }
                   }}
-                  className={`flex justify-between px-4 py-3 gap-1 rounded cursor-pointer  items-center ${isSelected
-                    ? "bg-theme-color text-primary-bg"
-                    : "bg-primary-bg dark:bg-primary-dark-bg"
-                    }`}
+                  className={`flex justify-between px-4 py-3 gap-1 rounded cursor-pointer items-center transition-color duration-300 ${
+                    isSelected
+                      ? "bg-theme-color text-primary-bg"
+                      : "bg-primary-bg dark:bg-primary-dark-bg"
+                  }`}
                   onClick={() => handleSelection(item.id)}
                 >
                   <span>{item.question}</span>
-                  <div>
-                    {isSelected ? <FaMinus /> : <FaPlus />}
-                  </div>
+                  <div>{isSelected ? <FaMinus /> : <FaPlus />}</div>
                 </div>
-                {isSelected && <div className="px-4 py-2 animate-fade-in">{item.answer}</div>}
+                <div
+                  className={`px-4 duration-300 transition-[max-height padding] overflow-hidden ${
+                    isSelected ? "max-h-40 py-2" : "max-h-0"
+                  }`}
+                >{item.answer}
+                </div>
               </li>
             );
           })}
