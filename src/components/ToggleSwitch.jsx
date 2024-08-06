@@ -17,7 +17,7 @@ const ToggleSwitch = ({
       >
         <span
           style={{ height: size }}
-          className={`rounded-full aspect-square bg-theme-color border-2 border-secondary-color transition duration-300  ease-in-out ${value ? "transform translate-x-full" : ""
+          className={`rounded-full aspect-square bg-theme-color border-2 border-secondary-color transition duration-300 ease-in-out ${value ? "transform translate-x-full" : ""
             }`}
         ></span>
       </button>
