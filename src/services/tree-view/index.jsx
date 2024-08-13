@@ -1,62 +1,79 @@
-import "./index.css";
 import React, { useState } from "react";
+import { IoIosArrowDown } from "react-icons/io";
 import menus from "./data";
 
 const TreeView = () => {
-  const [openObject, setOpenObject] = useState({});
+  const [openedListIds, setOpenedListIds] = useState([]);
+
+  function handleListExpandAndCollapse(id) {
+    setOpenedListIds((prevOpenedListIds) =>
+      prevOpenedListIds.includes(id)
+        ? prevOpenedListIds.filter((listId) => listId !== id)
+        : [...prevOpenedListIds, id]
+    );
+  }
+
   return (
-    <div className="tree-view-container">
+    <div className="h-full p-6 w-60 bg-primary-bg dark:bg-primary-dark-bg text-primary-text dark:text-primary-dark-text shadow-xl">
       <MenuList
         list={menus}
-        openObject={openObject}
-        setOpenObject={setOpenObject}
+        openedListIds={openedListIds}
+        handleListExpandAndCollapse={handleListExpandAndCollapse}
       />
     </div>
   );
 };
 
-function MenuList({ list, openObject, setOpenObject }) {
+function MenuList({ list, openedListIds, handleListExpandAndCollapse }) {
   return (
-    <ul className="menu-list">
+    <ul className="overflow-hidden">
       {list &&
         list.length > 0 &&
         list.map((item, i) => (
           <MenuItem
-            key={i}
+            key={item.id}
             item={item}
-            openObject={openObject}
-            setOpenObject={setOpenObject}
+            openedListIds={openedListIds}
+            handleListExpandAndCollapse={handleListExpandAndCollapse}
           />
         ))}
     </ul>
   );
 }
 
-function MenuItem({ item, openObject, setOpenObject }) {
-  //   const [showChildren, setShowChildren] = useState(false);
-  console.log(openObject);
+function MenuItem({ item, openedListIds, handleListExpandAndCollapse }) {
+  const isExpanded = openedListIds.includes(item.id);
   return (
-    <li className="menu-item">
-      <span>{item.label}</span>{" "}
-      {item.children && (
-        <span
-          onClick={() =>
-            setOpenObject((prevOpenObject) => ({
-              ...prevOpenObject,
-              [item.label]: !prevOpenObject[item.label],
-            }))
-          }
-        >
-          {openObject[item.label] ? "-" : "+"}
+    <li>
+      <div
+        role="button"
+        className="flex gap-2 text-lg font-bold items-center justify-between py-1"
+        onClick={() => {
+          item.children && handleListExpandAndCollapse(item.id);
+        }}
+      >
+        <span className={`${isExpanded && "text-theme-color"}`}>
+          {item.label}
         </span>
-      )}
-      {openObject[item.label] && (
+        {item.children && (
+          <IoIosArrowDown
+            className={`transition-transform duration-300 ease-linear ${
+              isExpanded ? "rotate-0" : "rotate-180"
+            }`}
+          />
+        )}
+      </div>
+      <div
+        className={`ml-6 grid transition-[grid-template-rows] duration-300 ${
+          isExpanded ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
+        }`}
+      >
         <MenuList
           list={item.children}
-          openObject={openObject}
-          setOpenObject={setOpenObject}
+          openedListIds={openedListIds}
+          handleListExpandAndCollapse={handleListExpandAndCollapse}
         />
-      )}
+      </div>
     </li>
   );
 }

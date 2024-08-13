@@ -65,10 +65,13 @@ export default function Accordion() {
                   <div>{isSelected ? <FaMinus /> : <FaPlus />}</div>
                 </div>
                 <div
-                  className={`px-4 duration-300 transition-[max-height padding] overflow-hidden ${
-                    isSelected ? "max-h-40 py-2" : "max-h-0"
+                  className={`px-4 duration-300 grid transition-[grid-template-rows] ${
+                    isSelected ? "grid-rows-[1fr]" : "grid-rows-[0fr]"
                   }`}
-                >{item.answer}
+                >
+                  <div className="overflow-hidden">
+                    <div className="py-2">{item.answer}</div>
+                  </div>
                 </div>
               </li>
             );
