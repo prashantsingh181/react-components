@@ -1,5 +1,5 @@
-import "./styles.css";
 import React, { useEffect, useState } from "react";
+import ProgressLoader from "../../components/progressLoader/ProgressLoader";
 
 export default function ScrollIndicator({ url }) {
   const [scrollIndicatorWidth, setScrollIndicatorWidth] = useState(0);
@@ -24,38 +24,40 @@ export default function ScrollIndicator({ url }) {
   }, [url]);
 
   useEffect(() => {
+    const element = document.querySelector("main");
     function handleScroll() {
-      // const scrollY = window.scrollY;
-      const scrollY =
-        document.documentElement.scrollTop || document.body.scrollTop;
-      const clientHeight = document.documentElement.clientHeight;
-      const scrollHeight = document.documentElement.scrollHeight;
-      setScrollIndicatorWidth((scrollY / (scrollHeight - clientHeight)) * 100);
+      const scrollY = element.scrollTop;
+      const scrollContainerClientHeight = element.clientHeight;
+      const scrollContainerScrollHeight = element.scrollHeight;
+      setScrollIndicatorWidth(
+        (scrollY /
+          (scrollContainerScrollHeight - scrollContainerClientHeight)) *
+          100
+      );
     }
-    window.addEventListener("scroll", handleScroll);
-
+    element.addEventListener("scroll", handleScroll);
     return () => {
-      window.removeEventListener("scroll", handleScroll);
+      element.removeEventListener("scroll", handleScroll);
     };
   }, []);
   if (loading) {
-    return <div>Loading</div>;
+    return <ProgressLoader />;
   }
   if (errorMessage) {
     return <div>Error: {errorMessage}</div>;
   }
   return (
-    <div className="scroll-container">
-      <div className="scroll-header">
-        <h1>Scroll Indicator</h1>
-        <div className="scroll-indicator-container">
-          <div
-            className="scroll-indicator"
-            style={{ width: `${scrollIndicatorWidth}%` }}
-          ></div>
-        </div>
+    <div className="relative">
+      <div className="h-1 sticky top-0 w-full">
+        <div
+          className="bg-theme-color h-1"
+          style={{ width: `${scrollIndicatorWidth}%` }}
+        ></div>
       </div>
-      <div className="data-container">
+      <div className="flex flex-col gap-2 text-primary-text dark:text-primary-dark-text p-6">
+        <h1 className="text-theme-color font-bold text-center text-xl">
+          Scroll Indicator
+        </h1>
         {data.map((item) => (
           <p key={item.id}>{item.title}</p>
         ))}

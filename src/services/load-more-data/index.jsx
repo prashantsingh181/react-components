@@ -5,7 +5,6 @@ const LoadMoreButton = ({ url, limit }) => {
   const [error, setError] = useState(null);
   const [products, setProducts] = useState([]);
   const [page, setPage] = useState(1);
-    console.log(1);
   useEffect(() => {
     async function getProducts() {
       try {
