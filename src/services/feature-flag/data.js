@@ -1,7 +1,6 @@
 const dummyFeatureFlagsData = {
   showTreeView: true,
   showLightDarkMode: true,
-  showQrCodeScanner: true,
   showCustomModalGenerator: true,
 };
 

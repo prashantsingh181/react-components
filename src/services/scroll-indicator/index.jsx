@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import ProgressLoader from "../../components/progressLoader/ProgressLoader";
+import RecipeCard from "../../components/RecipeCard";
 
 export default function ScrollIndicator({ url }) {
   const [scrollIndicatorWidth, setScrollIndicatorWidth] = useState(0);
@@ -11,7 +12,7 @@ export default function ScrollIndicator({ url }) {
     try {
       const response = await fetch(url);
       const data = await response.json();
-      setData(data.products);
+      setData(data.recipes);
     } catch (error) {
       console.error(error);
       setErrorMessage(error.message);
@@ -48,19 +49,21 @@ export default function ScrollIndicator({ url }) {
   }
   return (
     <div className="relative">
-      <div className="h-1 sticky top-0 w-full">
+      <div className="h-1 sticky top-0 w-full z-10">
         <div
-          className="bg-theme-color h-1"
+          className="bg-theme-color h-1 shadow"
           style={{ width: `${scrollIndicatorWidth}%` }}
         ></div>
       </div>
       <div className="flex flex-col gap-2 text-primary-text dark:text-primary-dark-text p-6">
-        <h1 className="text-theme-color font-bold text-center text-xl">
-          Scroll Indicator
+        <h1 className="text-theme-color font-bold text-center text-xl p-4">
+          Recipes
         </h1>
-        {data.map((item) => (
-          <p key={item.id}>{item.title}</p>
-        ))}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+          {data.map((recipe) => (
+            <RecipeCard key={recipe.id} recipe={recipe} />
+          ))}
+        </div>
       </div>
     </div>
   );

@@ -2,9 +2,7 @@ import Accordion from "./accordion";
 import RandomColor from "./random-color";
 import StarRating from "./star-rating";
 import ImageSlider from "./image-slider";
-import LoadMoreButton from "./load-more-data";
 import TreeView from "./tree-view";
-import QrCode from "./QrCode";
 import LightDark from "./light-dark";
 import ScrollIndicator from "./scroll-indicator";
 import TabParent from "./custom-tabs";
@@ -21,6 +19,7 @@ import UseWindowResizeTest from "./use-window-resize/test";
 import ScrollToParticularSection from "./scroll-to-particular-section";
 import ScrollToTopAndBottom from "./scroll-to-top-and-bottom";
 import AlertTest from "./alerts/AlertTest";
+import InfiniteScroll from "./infinite-scroll";
 
 const components = [
   {
@@ -46,9 +45,9 @@ const components = [
     ),
   },
   {
-    label: "Load More Button",
-    path: "/load-more-data",
-    element: <LoadMoreButton url="https://dummyjson.com/products" limit="20" />,
+    label: "Infinite Scroll",
+    path: "/infinite-scroll",
+    element: <InfiniteScroll url="https://dummyjson.com/products" limit="20" />,
   },
   //   {
   //     label: "Table with Checkbox",
@@ -61,11 +60,6 @@ const components = [
     element: <TreeView />,
   },
   {
-    label: "QR Code",
-    path: "/qr-code",
-    element: <QrCode />,
-  },
-  {
     label: "Light Dark Mode",
     path: "/light-dark",
     element: <LightDark />,
@@ -73,7 +67,7 @@ const components = [
   {
     label: "Scroll Indicator",
     path: "/scroll-indicator",
-    element: <ScrollIndicator url="https://dummyjson.com/products?limit=100" />,
+    element: <ScrollIndicator url="https://dummyjson.com/recipes" />,
   },
   {
     label: "Custom Tabs",
