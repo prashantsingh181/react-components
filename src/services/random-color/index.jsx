@@ -33,7 +33,7 @@ function RandomColorGenerator() {
   }
 
   return (
-    <div className="h-full p-4" style={{ backgroundColor: randomColor }}>
+    <div className="h-full p-4 transition-colors duration-200 ease-linear" style={{ backgroundColor: randomColor }}>
       <div className="container mx-auto flex flex-col gap-8 items-center text-primary-text dark:text-primary-dark-text">
         <select className="rounded p-2 shadow-md bg-primary-bg dark:bg-primary-dark-bg cursor-pointer" value={colorType} onChange={(e) => {
           setColorType(e.target.value)

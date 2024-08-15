@@ -15,11 +15,11 @@ const RootLayout = () => {
   return (
     <div className="h-screen grid grid-cols-1 md:grid-cols-[minmax(260px,auto)_1fr] grid-rows-[minmax(40px,auto)_1fr] relative">
       {/* Header */}
-      <div className="col-span-full shadow-xl border border-primary-border dark:border-primary-dark-border relative z-50">
+      <div className="col-span-full shadow-xl relative z-50">
         <Header toggleMobileNav={toggleMobileNav} />
       </div>
       {/* Desktop Navbar */}
-      <div className="shadow-xl border border-primary-border dark:border-primary-dark-border border-t-0 overflow-y-auto font-secondary relative z-40 hidden md:block">
+      <div className="shadow-xl overflow-y-auto font-secondary relative z-40 hidden md:block">
         <Navbar />
       </div>
       {/* Mobile Navbar */}

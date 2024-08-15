@@ -6,13 +6,13 @@ import TreeView from "./tree-view";
 import LightDark from "./light-dark";
 import ScrollIndicator from "./scroll-indicator";
 import TabParent from "./custom-tabs";
-import GithubProfileFinder from "./github-profile-finder";
-import ModalParent from "./custom-modal";
+// import GithubProfileFinder from "./github-profile-finder";
+// import ModalParent from "./custom-modal";
 import SearchAutocomplete from "./search-autocomplete";
 import TicTacToeWithHistory from "./tic-tac-toe-with-history";
 import TicTacToe from "./tic-tac-toe";
-import FeatureFlagProvider from "./feature-flag/context";
-import FeatureFlagComponent from "./feature-flag/FeatureFlagComponent";
+// import FeatureFlagProvider from "./feature-flag/context";
+// import FeatureFlagComponent from "./feature-flag/FeatureFlagComponent";
 import UseFetchTest from "./useFetch/test";
 import UseClickOutsideTest from "./useClickOutside/test";
 import UseWindowResizeTest from "./use-window-resize/test";
@@ -74,16 +74,16 @@ const components = [
     path: "/custom-tabs",
     element: <TabParent />,
   },
-  {
-    label: "Github Profile Finder",
-    path: "/github-profile-finder",
-    element: <GithubProfileFinder />,
-  },
-  {
-    label: "Custom Modal",
-    path: "/custom-modal",
-    element: <ModalParent />,
-  },
+  // {
+  //   label: "Github Profile Finder",
+  //   path: "/github-profile-finder",
+  //   element: <GithubProfileFinder />,
+  // },
+  // {
+  //   label: "Custom Modal",
+  //   path: "/custom-modal",
+  //   element: <ModalParent />,
+  // },
   {
     label: "Search Autocomplete",
     path: "/search-autocomplete",
@@ -99,15 +99,15 @@ const components = [
     path: "/tic-tac-toe",
     element: <TicTacToe />,
   },
-  {
-    label: "Feature Flag Provider",
-    path: "/feature-flag",
-    element: (
-      <FeatureFlagProvider>
-        <FeatureFlagComponent />
-      </FeatureFlagProvider>
-    ),
-  },
+  // {
+  //   label: "Feature Flag Provider",
+  //   path: "/feature-flag",
+  //   element: (
+  //     <FeatureFlagProvider>
+  //       <FeatureFlagComponent />
+  //     </FeatureFlagProvider>
+  //   ),
+  // },
   {
     label: "Use Fetch",
     path: "/use-fetch-test",

@@ -7,9 +7,9 @@ module.exports = {
       colors: {
         "theme-color": "#1e90ff",
         "primary-bg": "#FFFFFF",
-        "primary-dark-bg": "#2D2D3A",
+        "primary-dark-bg": "#17191d",
         "secondary-bg": "#f5f5f7",
-        "secondary-dark-bg": "#393948",
+        "secondary-dark-bg": "#24272f",
         "secondary-color": "#73e3b7",
         "primary-text": "#000000",
         "primary-dark-text": "#ffffff",
