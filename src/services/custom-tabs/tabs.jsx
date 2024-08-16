@@ -1,7 +1,6 @@
 import { useSearchParams } from "react-router-dom";
 
 export default function Tabs({ tabs }) {
-
   const [searchParams, setSearchParams] = useSearchParams();
   let currentTabIndex = tabs.findIndex(
     (tab) => tab.label === searchParams.get("activeTab")
@@ -16,7 +15,7 @@ export default function Tabs({ tabs }) {
           tabs.length > 0 &&
           tabs.map((tabItem, index) => (
             <span
-              className={`px-2 py-3 flex-1 text-center text-lg font-bold rounded-t ${
+              className={`px-2 py-3 flex-1 text-center text-lg font-bold rounded-t transition-colors duration-200 ease-linear ${
                 currentTabIndex === index
                   ? "bg-primary-bg dark:bg-primary-dark-bg"
                   : ""

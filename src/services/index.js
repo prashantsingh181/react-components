@@ -33,16 +33,14 @@ const components = [
     element: <RandomColor />,
   },
   {
+    label: "Scroll Indicator",
+    path: "/scroll-indicator",
+    element: <ScrollIndicator url="https://dummyjson.com/recipes" />,
+  },
+  {
     label: "Star Rating",
     path: "/star-rating",
     element: <StarRating />,
-  },
-  {
-    label: "Image Slider",
-    path: "/image-slider",
-    element: (
-      <ImageSlider url="https://picsum.photos/v2/list" page="1" limit="5" />
-    ),
   },
   {
     label: "Infinite Scroll",
@@ -50,25 +48,27 @@ const components = [
     element: <InfiniteScroll url="https://dummyjson.com/products" limit="20" />,
   },
   //   {
-  //     label: "Table with Checkbox",
-  //     path: "/table-with-checkbox",
-  //     element: <TableWithCheckbox headers={headers} order={order} bodyObject={bodyObject} />,
-  //   }
-  {
-    label: "Tree View",
-    path: "/tree-view",
-    element: <TreeView />,
-  },
-  {
-    label: "Light Dark Mode",
-    path: "/light-dark",
-    element: <LightDark />,
-  },
-  {
-    label: "Scroll Indicator",
-    path: "/scroll-indicator",
-    element: <ScrollIndicator url="https://dummyjson.com/recipes" />,
-  },
+    //     label: "Table with Checkbox",
+    //     path: "/table-with-checkbox",
+    //     element: <TableWithCheckbox headers={headers} order={order} bodyObject={bodyObject} />,
+    //   }
+    {
+      label: "Tree View",
+      path: "/tree-view",
+      element: <TreeView />,
+    },
+    {
+      label: "Light Dark Mode",
+      path: "/light-dark",
+      element: <LightDark />,
+    },
+    {
+      label: "Image Slider",
+      path: "/image-slider",
+      element: (
+        <ImageSlider url="https://picsum.photos/v2/list" page="1" limit="5" />
+      ),
+    },
   {
     label: "Custom Tabs",
     path: "/custom-tabs",

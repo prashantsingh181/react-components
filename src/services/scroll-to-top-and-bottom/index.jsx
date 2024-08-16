@@ -1,52 +1,70 @@
-import "./styles.css";
+import { useRef } from "react";
 import useFetch from "../useFetch";
-import useWindowScroll from "./useWindowScroll";
+import ProgressLoader from "../../components/progressLoader/ProgressLoader";
+import UserCard from "../../components/UserCard";
+import useElementScroll from "./useElementScroll";
+import { FaArrowUp, FaArrowDown } from "react-icons/fa6";
 
 const ScrollToTopAndBottom = () => {
-  const { _, scrollY } = useWindowScroll();
-  console.log(scrollY);
-  console.log(window.scoll);
+  const scrollRef = useRef();
   const { data, errorMessage, loading } = useFetch(
-    "https://dummyjson.com/products?limit=100"
+    "https://dummyjson.com/users"
   );
+
+  const {
+    scroll,
+    scrollableHeight,
+    clientHeight,
+    scrollToTop,
+    scrollToBottom,
+  } = useElementScroll("main", loading);
+
+  const scrollDegree = Math.round(
+    (scroll.scrollY / (scrollableHeight - clientHeight)) * 360
+  );
+
   if (errorMessage) {
     return <h3>{errorMessage}</h3>;
   }
   if (loading) {
-    return <h3>Loading...</h3>;
+    return <ProgressLoader />;
   }
   return (
-    <div className="scroll-container">
-      <h1>Scroll To Top and Bottom Feature</h1>
-      {scrollY > 0 && (
+    <div ref={scrollRef} className="relative container mx-auto p-2 md:p-4">
+      <h1 className="text-xl font-bold text-theme-color text-center p-4">
+        Users
+      </h1>
+      {scroll.scrollY < scrollableHeight - clientHeight - 500 && (
         <button
-          className="scroll-btn scroll-to-top"
-          onClick={() =>
-            window.scrollTo({ top: 0, left: 0, behavior: "smooth" })
-          }
+          className="z-10 fixed top-20 right-4 rounded-full text-white p-0.5"
+          style={{
+            background: `conic-gradient(#73e3b7 ${scrollDegree}deg , #1e90ff ${scrollDegree}deg)`,
+          }}
+          onClick={scrollToBottom}
         >
-          <i className="bi bi-arrow-up-square-fill"></i>
+          <div className="bg-theme-color rounded-full p-3">
+            <FaArrowDown />
+          </div>
         </button>
       )}
-      {(scrollY + window.innerHeight < document.body.scrollHeight ||
-        scrollY === 0) && (
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+        {data?.users &&
+          data.users.length &&
+          data.users.map((user) => <UserCard key={user.id} user={user} />)}
+      </div>
+      {scroll.scrollY > 500 && (
         <button
-          className="scroll-btn scroll-to-bottom"
-          onClick={() =>
-            window.scrollTo({
-              top: document.body.scrollHeight,
-              behavior: "smooth",
-            })
-          }
-        >
-          <i className="bi bi-arrow-down-square-fill"></i>
-        </button>
+        className="z-10 fixed bottom-4 right-4 rounded-full text-white p-0.5"
+        style={{
+          background: `conic-gradient(#73e3b7 ${scrollDegree}deg , #1e90ff ${scrollDegree}deg)`,
+        }}
+        onClick={scrollToTop}
+      >
+        <div className="bg-theme-color rounded-full p-3">
+          <FaArrowUp />
+        </div>
+      </button>
       )}
-      <ul>
-        {data?.products &&
-          data.products.length &&
-          data.products.map((item) => <li key={item.id}>{item.title}</li>)}
-      </ul>
     </div>
   );
 };
