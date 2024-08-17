@@ -13,7 +13,7 @@ const RootLayout = () => {
     setIsMobileNavVisible(false);
   }, [location])
   return (
-    <div className="h-screen grid grid-cols-1 md:grid-cols-[minmax(260px,auto)_1fr] grid-rows-[minmax(40px,auto)_1fr] relative">
+    <div className="h-screen grid grid-cols-1 md:grid-cols-[288px_1fr] grid-rows-[minmax(40px,auto)_1fr] relative">
       {/* Header */}
       <div className="col-span-full shadow-xl relative z-50">
         <Header toggleMobileNav={toggleMobileNav} />

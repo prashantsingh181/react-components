@@ -32,7 +32,7 @@ code {
     @apply shadow-lg rounded bg-primary-bg dark:bg-primary-dark-bg;
   }
   .primary-button {
-    @apply bg-theme-color text-primary-bg px-4 py-2 shadow-md rounded-md;
+    @apply bg-theme-color text-primary-bg px-4 py-2 shadow-md rounded-md font-bold;
   }
   .primary-button:hover:not(:disabled) {
     @apply opacity-85;

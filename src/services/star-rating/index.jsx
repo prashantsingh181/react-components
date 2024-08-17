@@ -27,6 +27,7 @@ export default function StarRating({ numberOfStars = 5 }) {
           .fill()
           .map((_, i) => (
             <FaStar
+              key={i}
               size="1.5rem"
               className={`cursor-pointer ${
                 i <= hoverIndex

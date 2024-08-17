@@ -9,14 +9,14 @@ import TabParent from "./custom-tabs";
 // import GithubProfileFinder from "./github-profile-finder";
 // import ModalParent from "./custom-modal";
 import SearchAutocomplete from "./search-autocomplete";
-import TicTacToeWithHistory from "./tic-tac-toe-with-history";
-import TicTacToe from "./tic-tac-toe";
+// import TicTacToeWithHistory from "./tic-tac-toe-with-history";
+// import TicTacToe from "./tic-tac-toe";
 // import FeatureFlagProvider from "./feature-flag/context";
 // import FeatureFlagComponent from "./feature-flag/FeatureFlagComponent";
-import UseFetchTest from "./useFetch/test";
-import UseClickOutsideTest from "./useClickOutside/test";
-import UseWindowResizeTest from "./use-window-resize/test";
-import ScrollToParticularSection from "./scroll-to-particular-section";
+// import UseFetchTest from "./useFetch/test";
+// import UseClickOutsideTest from "./useClickOutside/test";
+// import UseWindowResizeTest from "./use-window-resize/test";
+// import ScrollToParticularSection from "./scroll-to-particular-section";
 import ScrollToTopAndBottom from "./scroll-to-top-and-bottom";
 import AlertTest from "./alerts/AlertTest";
 import InfiniteScroll from "./infinite-scroll";
@@ -89,16 +89,16 @@ const components = [
     path: "/search-autocomplete",
     element: <SearchAutocomplete />,
   },
-  {
-    label: "Tic Tac Toe with History",
-    path: "/tic-tac-toe-with-history",
-    element: <TicTacToeWithHistory />,
-  },
-  {
-    label: "Tic Tac Toe",
-    path: "/tic-tac-toe",
-    element: <TicTacToe />,
-  },
+  // {
+  //   label: "Tic Tac Toe with History",
+  //   path: "/tic-tac-toe-with-history",
+  //   element: <TicTacToeWithHistory />,
+  // },
+  // {
+  //   label: "Tic Tac Toe",
+  //   path: "/tic-tac-toe",
+  //   element: <TicTacToe />,
+  // },
   // {
   //   label: "Feature Flag Provider",
   //   path: "/feature-flag",
@@ -108,26 +108,26 @@ const components = [
   //     </FeatureFlagProvider>
   //   ),
   // },
-  {
-    label: "Use Fetch",
-    path: "/use-fetch-test",
-    element: <UseFetchTest />,
-  },
-  {
-    label: "Use Click Outside",
-    path: "/use-click-outside-test",
-    element: <UseClickOutsideTest />,
-  },
-  {
-    label: "Use Window Resize",
-    path: "/use-window-resize-test",
-    element: <UseWindowResizeTest />,
-  },
-  {
-    label: "Scroll To Particular Section",
-    path: "/scroll-to-particular-section",
-    element: <ScrollToParticularSection />,
-  },
+  // {
+  //   label: "Use Fetch",
+  //   path: "/use-fetch-test",
+  //   element: <UseFetchTest />,
+  // },
+  // {
+  //   label: "Use Click Outside",
+  //   path: "/use-click-outside-test",
+  //   element: <UseClickOutsideTest />,
+  // },
+  // {
+  //   label: "Use Window Resize",
+  //   path: "/use-window-resize-test",
+  //   element: <UseWindowResizeTest />,
+  // },
+  // {
+  //   label: "Scroll To Particular Section",
+  //   path: "/scroll-to-particular-section",
+  //   element: <ScrollToParticularSection />,
+  // },
   {
     label: "Scroll To Top and Bottom",
     path: "/scroll-to-top-and-bottom",
