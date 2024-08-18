@@ -66,7 +66,7 @@ const components = [
       label: "Image Slider",
       path: "/image-slider",
       element: (
-        <ImageSlider url="https://picsum.photos/v2/list" page="1" limit="5" />
+        <ImageSlider url="https://picsum.photos/v2/list" page="4" limit="5" />
       ),
     },
   {

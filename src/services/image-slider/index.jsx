@@ -1,70 +1,108 @@
-import "./styles.css";
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
+import {
+  IoMdArrowDropleftCircle,
+  IoMdArrowDroprightCircle,
+} from "react-icons/io";
+
+import ProgressLoader from "../../components/progressLoader/ProgressLoader";
+
 export default function ImageSlider({ url, page = 1, limit = 5 }) {
-  const [images, setImages] = useState([]);
-  const [errorMessage, setErrorMessage] = useState(null);
-  const [loading, setLoading] = useState(true);
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [imagesData, setImagesData] = useState([]);
+  const [error, setError] = useState();
+  const [loading, setLoading] = useState(false);
+  const [currentIndex, setCurrentIndex] = useState(0);
+
   useEffect(() => {
-    async function getImages(url, page, limit) {
+    async function getImagesData() {
+      setLoading(true);
       try {
         const response = await fetch(`${url}?page=${page}&limit=${limit}`);
-        const data = await response.json();
-        console.log(data);
-        setImages(data);
+        if (response.ok) {
+          const data = await response.json();
+          setImagesData(data);
+        } else {
+          setError(response.statusText);
+        }
       } catch (error) {
-        console.error(error);
-        setErrorMessage(error.message);
+        setError(error.message);
       } finally {
         setLoading(false);
       }
     }
-    getImages(url, page, limit);
-  }, []);
+    getImagesData();
+  }, [url, limit, page]);
 
-  function handleCounterIncrement() {
-    setCurrentImageIndex((prevCurrentImageIndex) => {
-      if (prevCurrentImageIndex >= images.length - 1) {
-        return 0;
-      } else {
-        return prevCurrentImageIndex + 1;
-      }
-    });
+  function incrementCurrentIndex() {
+    if (currentIndex === imagesData.length - 1) return;
+    setCurrentIndex((prevIndex) => (prevIndex + 1) % imagesData.length);
   }
 
-  function handleCounterDecrement() {
-    setCurrentImageIndex((prevCurrentImageIndex) => {
-      if (prevCurrentImageIndex <= 0) {
-        return images.length - 1;
-      } else {
-        return prevCurrentImageIndex - 1;
-      }
-    });
+  function decrementCurrentIndex() {
+    if (currentIndex === 0) return;
+    setCurrentIndex(
+      (prevIndex) => (prevIndex - 1 + imagesData.length) % imagesData.length
+    );
   }
+
   if (loading) {
-    return <h1>Loading...</h1>;
-  } else {
-    if (errorMessage) {
-      return <h1>{errorMessage}</h1>;
-    } else {
-      return (
-        <div className="image-wrapper">
-          {images &&
-            images.map(
-              (image, i) =>
-                i === currentImageIndex && (
-                  <img
-                    className="image"
-                    key={image.id}
-                    src={image.download_url}
-                  />
-                )
-            )}
-            {images.map((_, i) => (<button onClick={() => setCurrentImageIndex(i)}></button>))}
-          <button onClick={handleCounterDecrement}>&lt;-</button>
-          <button onClick={handleCounterIncrement}>-&gt;</button>
-        </div>
-      );
-    }
+    return <ProgressLoader />;
   }
+
+  if (error) {
+    return <div>Error: {error}</div>;
+  }
+
+  return (
+    <div className="flex flex-col gap-10 items-center p-2 sm:p-6 h-full">
+      <h1 className="text-theme-color font-bold text-center text-xl p-4">
+        Image Slider
+      </h1>
+      <div className="relative w-[600px] overflow-hidden h-80 shadow-md">
+        <IoMdArrowDropleftCircle
+          size="1.5rem"
+          className={`absolute left-2 top-1/2 -translate-y-1/2 z-10 rounded-full shadow cursor-pointer ${
+            currentIndex === 0
+              ? "text-gray-400"
+              : "text-white hover:scale-110 transition duration-200 ease-linear"
+          }`}
+          onClick={decrementCurrentIndex}
+        />
+
+        <IoMdArrowDroprightCircle
+          size="1.5rem"
+          className={`absolute right-2 top-1/2 -translate-y-1/2 z-10 rounded-full shadow cursor-pointer ${
+            currentIndex === imagesData.length - 1
+              ? "text-gray-400"
+              : "text-white hover:scale-110 transition duration-200 ease-linear"
+          }`}
+          onClick={incrementCurrentIndex}
+        />
+
+        {imagesData.map((image, index) => (
+          <div
+            key={image.id}
+            style={{
+              backgroundImage: `url(${image.download_url})`,
+              left: `${index * 100}%`,
+              transform: `translateX(-${currentIndex * 100}%)`,
+            }}
+            className="w-full h-full absolute bg-cover rounded-lg transition duration-700 ease-linear"
+            alt="image of image slider"
+          />
+        ))}
+        <div className="flex gap-2 absolute z-10 bottom-4 left-1/2 -translate-x-1/2">
+          {imagesData.map((_, index) => (
+            <button
+              className={`w-2.5 aspect-square rounded-full ${
+                currentIndex === index
+                  ? "bg-white scale-110"
+                  : "bg-gray-400 hover:scale-110 hover:bg-white"
+              }`}
+              onClick={() => setCurrentIndex(index)}
+            />
+          ))}
+        </div>
+      </div>
+    </div>
+  );
 }
