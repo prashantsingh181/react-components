@@ -93,6 +93,7 @@ export default function ImageSlider({ url, page = 1, limit = 5 }) {
         <div className="flex gap-2 absolute z-10 bottom-4 left-1/2 -translate-x-1/2">
           {imagesData.map((_, index) => (
             <button
+              key={index}
               className={`w-2.5 aspect-square rounded-full ${
                 currentIndex === index
                   ? "bg-white scale-110"

@@ -1,3 +1,4 @@
+import { memo } from "react";
 import Badge from "./Badge";
 import Rating from "./Rating";
 import { LuTimer } from "react-icons/lu";
@@ -40,4 +41,4 @@ function RecipeCard({ recipe }) {
   );
 }
 
-export default RecipeCard;
+export default memo(RecipeCard);

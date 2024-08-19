@@ -1,8 +1,8 @@
+import { memo } from "react";
 import { MdAlternateEmail, MdOutlinePhone } from "react-icons/md";
 import { IoMdFemale, IoMdMale } from "react-icons/io";
 import { LiaBirthdayCakeSolid } from "react-icons/lia";
 import { format } from "date-fns";
-
 import Badge from "./Badge";
 
 function UserCard({ user }) {
@@ -52,4 +52,4 @@ function UserCard({ user }) {
   );
 }
 
-export default UserCard;
+export default memo(UserCard);

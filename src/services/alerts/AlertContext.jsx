@@ -34,7 +34,10 @@ const AlertProvider = ({ children }) => {
       type: "error",
       message: msg,
     }));
-    timeoutRef.current = setTimeout(() => setAlert({ isVisible: false }), 3000);
+    timeoutRef.current = setTimeout(
+      () => setAlert((prevAlert) => ({ ...prevAlert, isVisible: false })),
+      3000
+    );
   }
 
   return (
