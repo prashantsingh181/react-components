@@ -15,7 +15,9 @@ function App() {
         element: route.element,
       })),
     },
-  ]);
+  ], {
+    basename: "/react-components"
+  });
 
   return <RouterProvider router={router} />;
 }
