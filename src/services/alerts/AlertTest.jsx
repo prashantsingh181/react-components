@@ -1,6 +1,6 @@
 import ToggleSwitch from "../../components/ToggleSwitch";
 import AlertComponent from "./AlertComponent";
-import { useAlert } from "./AlertContext";
+import { useAlert } from "../../context/AlertContext";
 
 const AlertTest = () => {
   const { alert, setAlert, showSuccessAlert, showErrorAlert } = useAlert();

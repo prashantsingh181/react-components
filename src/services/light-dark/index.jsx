@@ -1,9 +1,8 @@
-import "./styles.css";
 import ToggleSwitch from "../../components/ToggleSwitch";
-import { useTheme } from "./ThemeContext";
+import { useTheme } from "../../context/ThemeContext";
 
 export default function LightDark() {
-  const { theme, setTheme } = useTheme();
+  const [theme, setTheme] = useTheme();
   function handleToggleTheme() {
     setTheme((prevTheme) => (prevTheme === "light" ? "dark" : "light"));
   }

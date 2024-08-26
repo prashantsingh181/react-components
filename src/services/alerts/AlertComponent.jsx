@@ -1,4 +1,4 @@
-import { useAlert } from "./AlertContext";
+import { useAlert } from "../../context/AlertContext";
 import { IoMdCloseCircle } from "react-icons/io";
 import { FaCheckCircle } from "react-icons/fa";
 
@@ -8,9 +8,8 @@ const AlertComponent = () => {
     return alert.style === "bold" ? (
       <div className="fixed z-20  bottom-4 left-0 p-2 md:p-4 md:pl-[304px] w-full">
         <div
-          className={`${
-            alert.type === "error" ? "bg-red-300" : "bg-green-300"
-          } p-4 rounded bg-opacity-60 backdrop-blur-sm border-slate-300 shadow-lg`}
+          className={`${alert.type === "error" ? "bg-red-300" : "bg-green-300"
+            } p-4 rounded bg-opacity-60 backdrop-blur-sm border-slate-300 shadow-lg`}
         >
           <div className="flex gap-4 items-center">
             {alert.type === "error" ? (
@@ -27,9 +26,8 @@ const AlertComponent = () => {
       </div>
     ) : (
       <div
-        className={`${
-          alert.type === "error" ? "bg-red-300" : "bg-green-300"
-        } fixed z-20 top-24 right-8 flex flex-row gap-5 items-center bg-opacity-60 backdrop-blur-sm px-3 py-2 rounded border-slate-300 shadow-lg animate-floatDown`}
+        className={`${alert.type === "error" ? "bg-red-300" : "bg-green-300"
+          } fixed z-20 top-24 right-8 flex flex-row gap-5 items-center bg-opacity-60 backdrop-blur-sm px-3 py-2 rounded border-slate-300 shadow-lg animate-floatDown`}
       >
         <div className="flex flex-row gap-3 items-center">
           {alert.type === "error" ? (

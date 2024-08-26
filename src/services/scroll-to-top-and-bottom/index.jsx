@@ -36,7 +36,7 @@ const ScrollToTopAndBottom = () => {
       </h1>
       {scroll.scrollY < scrollableHeight - clientHeight - 500 && (
         <button
-          className="z-10 fixed top-20 right-4 rounded-full text-white p-0.5"
+          className="z-10 fixed top-20 right-6 rounded-full text-white p-0.5"
           style={{
             background: `conic-gradient(#73e3b7 ${scrollDegree}deg , #1e90ff ${scrollDegree}deg)`,
           }}
@@ -54,16 +54,16 @@ const ScrollToTopAndBottom = () => {
       </div>
       {scroll.scrollY > 500 && (
         <button
-        className="z-10 fixed bottom-4 right-4 rounded-full text-white p-0.5"
-        style={{
-          background: `conic-gradient(#73e3b7 ${scrollDegree}deg , #1e90ff ${scrollDegree}deg)`,
-        }}
-        onClick={scrollToTop}
-      >
-        <div className="bg-theme-color rounded-full p-3">
-          <FaArrowUp />
-        </div>
-      </button>
+          className="z-10 fixed bottom-4 right-6 rounded-full text-white p-0.5"
+          style={{
+            background: `conic-gradient(#73e3b7 ${scrollDegree}deg , #1e90ff ${scrollDegree}deg)`,
+          }}
+          onClick={scrollToTop}
+        >
+          <div className="bg-theme-color rounded-full p-3">
+            <FaArrowUp />
+          </div>
+        </button>
       )}
     </div>
   );
